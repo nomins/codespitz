@@ -1,0 +1,40 @@
+# Gradle
+.gradle
+
+# Build Artifacts
+out/
+target/
+bin/
+build/
+*.class
+*.jar
+!gradle-wrapper.jar
+*.war
+*.zip
+*.ear
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IDEA
+.idea/
+*.iml
+
+# NodeJS
+node_modules
+npm-debug.log*
+.webpack
+
+# Serverless Framework
+.serverless
+.DS_Store
+
+# secret files
+secret.yml
+
+# python
+__pycache__
+*.egg-info/
+**/vendored/*.py

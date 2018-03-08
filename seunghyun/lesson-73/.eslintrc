@@ -1,0 +1,14 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "func-names": [ "error", "never" ],
+        "indent": [ "error", 4 ],
+        "no-use-before-define": [ "error", { "functions": false } ],
+        "no-underscore-dangle": "off",
+        "import/prefer-default-export": "off"
+    },    
+    "env": {
+            "node": true,
+            "mocha": true
+    }
+}

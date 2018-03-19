@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div#SomeElementYouWantToAnimate {
+      height: 100px;
+      width: 100px;
+      margin-top: 30px;
+      background-color: orange;
+    }
+
+    input#btn-start{
+      height: 30px;
+      width: 50px;
+      font-size: 1.1em;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" id="btn-start" value="시작">
+  <div id="SomeElementYouWantToAnimate"></div>
+
+  <script>
+    // link: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+    document.getElementById('btn-start').onclick = (event) => {
+      let start = null;
+      const element = document.getElementById('SomeElementYouWantToAnimate');
+      element.style.position = 'absolute';
+
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        element.style.left = Math.min(progress / 10, 200) + 'px';
+        if (progress < 2000) {
+          window.requestAnimationFrame(step);
+        }
+      };
+
+      window.requestAnimationFrame(step);
+    };
+  </script>
+</body>
+</html>

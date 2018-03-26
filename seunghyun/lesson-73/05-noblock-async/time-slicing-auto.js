@@ -1,13 +1,14 @@
 /* eslint-disable */
 
 // browser code
-const looper = (n, f, slice = 3) => {
-    let limit = 0, i = 0;
-    const runner = () => {
+const looper = (n, f, ms = 5000, i = 0) => {
+    let old = performance.now(), curr; 
+    const runner = _ => {
         while(i < n) {
-            if (limit++ < slice) f(i++);
+            curr = performance.now();
+            if(curr - old < ms) f(i++);
             else {
-                limit = 0;
+                old = curr;
                 requestAnimationFrame(runner);
                 break;
             }
